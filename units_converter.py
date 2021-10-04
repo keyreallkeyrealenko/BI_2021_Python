@@ -14,6 +14,7 @@ convert_command = input()
 while n != 1:
     if convert_command not in command_lst and convert_command not in rev_command_lst:
         print('Invalid command. Correct command should be like "m-s" where "m" – minutes to "s" – seconds')
+        print("Don't worry")
         print("Try again: ")
         convert_command = input()
     else:
@@ -141,3 +142,5 @@ elif convert_command[0] == 'y':
     elif convert_command[-1] == 'w':
         ans = 52.1786 * value
         print(f'{value} years are {ans} weeks')
+
+print('Thank you for using our products!')
