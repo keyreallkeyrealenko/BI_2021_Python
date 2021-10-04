@@ -6,13 +6,16 @@ print('Enter two letters separated by "-" to convert these measurements (e.g s-c
 # Making two lists to compare entered command with available commands
 command_lst = ['s-m', 's-h', 's-d', 's-w', 's-y', 'm-h', 'm-d', 'm-w', 'm-y', 'h-d', 'h-w', 'h-y',
                'd-w', 'd-y', 'w-y']
-rev_command_lst = [i[::-1] for i in command_lst]
+
+rev_command_list = []
+for i in command_lst:
+    rev_command_list.append(i[::-1])
 
 # Checking if the command is valid
 n = 0
 convert_command = input()
 while n != 1:
-    if convert_command not in command_lst and convert_command not in rev_command_lst:
+    if convert_command not in command_lst and convert_command not in rev_command_list:
         print('Invalid command. Correct command should be like "m-s" where "m" – minutes to "s" – seconds')
         print("Try again: ")
         convert_command = input()
