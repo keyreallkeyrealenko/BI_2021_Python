@@ -8,18 +8,18 @@ import seaborn as sns
 
 def compare_speed():
     """This function compares speed of np.random.uniform and random.random
-    and draw time dependence of them"""
+    and draw time dependence of them. Btw it surprisingly that numpy is slower"""
     checkpoints = [0, 100, 1000, 5000, 10000, 100000, 500000]
     standard_module = []
     module_np = []
     for i in range(checkpoints[-1] + 1):
         if i in checkpoints:
             start = time.time()
-            [random.random() for j in range(i)]
+            [random.random() for _ in range(i)]
             end = time.time()
             standard_module.append(end - start)
             start_1 = time.time()
-            [np.random.uniform() for j in range(i)]
+            [np.random.uniform() for _ in range(i)]
             end_1 = time.time()
             module_np.append(end_1 - start_1)
 
@@ -65,7 +65,7 @@ def monkey_sort_plot():
     for i in range(1, 11):
         monkey_df[i] = time_checker(i)
     sns.barplot(x="variable", y="value", data=pd.melt(monkey_df), color='blue', alpha=0.5)
-    plt.xlabel('size')
+    plt.xlabel('array size')
     plt.ylabel('Time (s)')
     plt.title('Monkey Sort time (Actually it is an exponential function)')
     plt.show()
@@ -116,3 +116,27 @@ def sierpinski(n):
     plt.show()
 
 
+def text_shuffle(text):
+    """Shuffle middle characters in a word"""
+    ans = []
+    for word in text.split():
+        middle = list(word[1:-1])
+        np.random.shuffle(middle)
+        middle = ''.join(middle)
+        word = word[0] + middle + word[-1]
+        ans.append(word)
+    return ' '.join(ans)
+
+
+def main():
+    # Wait a moment while Monkey sort is working
+    text = input('Write text you want to shuffle: ')
+    compare_speed()
+    monkey_sort_plot()
+    random_walk(100000)
+    sierpinski(10000)
+    print(text_shuffle(text))
+
+
+if __name__ == '__main__':
+    main()
