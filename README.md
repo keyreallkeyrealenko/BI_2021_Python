@@ -1,2 +1,2 @@
 
-This repository is created for Python course **Bioinformatics Institute**
+This repository is created for Python course in **Bioinformatics Institute**
