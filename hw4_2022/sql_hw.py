@@ -69,7 +69,7 @@ def main():
     print(data_flt_percent.tail())
     reads = count_reads(cur)
     print(f"Total number of reads: {reads}")
-    delete_row(cursor= cur, species='Methylobacterium goesingense')
+    delete_row(cursor=cur, species='Methylobacterium goesingense')
     conn.commit()
 
 
