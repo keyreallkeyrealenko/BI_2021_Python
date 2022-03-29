@@ -1,8 +1,8 @@
-from typing import *
+import typing
 import random
 
 
-def get_requests(fasta_path: str) -> Generator:
+def get_requests(fasta_path: str) -> typing.Generator:
     """Return generator contains identifier and sequence itself"""
     with open(fasta_path) as file:
         i = -1
